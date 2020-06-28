@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row mt-2">
+         {{#if success}}
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 m-auto alert alert-success">
+                            {{success}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        {{#each list}}
+            <div class="col-md-9 col-sm-11 col-xs-11 px-1 mb-2 m-auto products">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="discount"> {{this.discount}} </span>
+                        <img src="/images/logo/shop-logo.png" class="card-img-top img-responsive image" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h3 class="card-title title text-info">{{this.product_name}}</h3>
+                            <hr>
+                            
+                            <div class="price text-info">
+                                <p class="mrp">
+                                    <i class="fa fa-rupee"></i> {{this.product_mrp}} {{this.product_unit}}
+                                </p>
+                                <p class="dis-price text-dark font-weight-bold">
+                                    <i class="fa fa-rupee"></i> {{this.product_price}} {{this.product_unit}}
+                                </p>
+                            </div>
+                            <p class="card-text description">
+                                {{this.product_desc}}
+                            </p>
+
+                            <div class="mb-2">
+                                <div class="">
+                                    <span class="quantity">
+                                        <button id="minus">-</button><input type="text" id="quantity" value="1"><button id="plus">+</button>
+                                    </span>
+                                    <a href="/addToCart/{{this.product_slag}}" class="btn btn-info px-4 py-2 rounded-0">Add to Cart</a>
+
+                                    <hr>
+                                    <p>Category: <span class="discount"> {{this.product_category.name}} </span></p>
+                                    <hr>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>   
+
+
+<script>
+    let quantity = Number($("#quantity").val());
+    $("#minus").click(function(){
+
+        if(quantity <= 1){
+            $("#quantity").val(1);
+        }else{
+            quantity-=1;
+            $("#quantity").val(quantity);
+        }
+    })
+    $("#plus").click(function(){
+        quantity+=1;
+        $("#quantity").val(quantity);
+    })
+</script>

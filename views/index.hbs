@@ -1,0 +1,47 @@
+<div class="container-fluid bg-light">
+    <div class="row mt-2">
+        <div class="col-md-12 m-auto my-2">
+            <div class="row">
+                {{#if success}}
+                    <div class="alert alert-success col-md-6 m-auto">
+                        {{success}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        {{#each list}}
+            <div class="col-md-2 col-sm-6 col-xs-6 px-1 mb-2">
+                <div class="card border-0 ">
+                    <a href="/products/{{this.product_slag}}" class="card-link card border-0">
+                        <span class="discount"> {{this.discount}} </span>
+                        <img src="/images/logo/shop-logo.png" class="card-img-top img-responsive image" alt="...">
+                        <div class="card-body">
+                            
+                            <h5 class="card-title title text-info">{{this.product_name}}</h5>
+                            
+                            <div class="price text-info">
+                                <p class="mrp">
+                                    <i class="fa fa-inr"></i> {{this.product_mrp}} 
+                                </p>
+                                <p class="dis-price">
+                                    <i class="fa fa-inr"></i> {{this.product_price}} 
+                                </p>
+                            </div>
+                            <p class="text-center text-muted font-weight-bold">
+                                Unit: {{this.product_unit}}
+                            </p>
+                        </div>
+                    </a>
+                    <div class="text-center mb-2">
+                        <a href="/addToCart/{{this.product_slag}}" class="btn btn-info border-0 rounded-0 add-to-kart">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>   
+
+
+<script>
+
+</script>

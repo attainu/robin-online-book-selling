@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-info bg-info">
+    <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info mobile-site">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="website-logo mr-auto">
+            <a href="/"><img src="/images/logo/shop-logo.png" alt="" class="img img-fluid"></a>
+        </div>
+
+        <div class="website-icon ml-auto mobile-site">
+            <button type="button" class="btn btn-info"> <i class="fa fa-search"></i> </button>
+            <a href="/yourCart" class="btn btn-info"> <i class="fa fa-shopping-cart"></i> 
+                {{#if cart}}
+                    <span class="badge badge-danger">{{cart.length}}</span>
+                {{/if}}
+            </a>
+        </div>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" id="top-header">
+            <i class="fas fa-align-justify"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/yourCart" class="btn btn-info"> <i class="fa fa-shopping-cart"></i> Shopping Cart (
+                        {{cart.length}}
+                    ) </a>
+                </li>
+                <li class="nav-item">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i> User
+                        </button>
+                        
+                        {{#if login}}
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="/users/profile" class="dropdown-item" type="button">Profile</a>
+
+                                <a href="/users/proile" class="dropdown-item" type="button">Order</a>
+
+                                <a href="/users/logout" class="dropdown-item" type="button">Logout</a>
+
+                            </div>
+                        {{else}}
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="/users/signup" class="dropdown-item" type="button">Signup</a>
+                                <a href="/users/signin" class="dropdown-item" type="button">Signin</a>
+                            </div>
+                        {{/if}}
+                    </div>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+</nav>

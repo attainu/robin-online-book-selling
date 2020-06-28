@@ -1,0 +1,56 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-6 m-auto table-responsive">
+           {{#if success}}
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 m-auto alert alert-success">
+                                {{success}}
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if cart.length}}
+                <table class="table table-striped">
+                    <tr>
+                        <th>#SN</th>
+                        <th>Product Name</th>
+                        <th>Product Quantity</th>
+                        <th>Product Price</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                    {{#each cart}}
+                        <tr>
+                            <th>{{@index}}</th>
+                            <th>{{this.product_name}}</th>
+                            <th>{{this.qty}}</th>
+                            <th>{{this.product_price}}</th>
+                            <th>{{this.subtotal}}</th>
+                            <th>
+                                <a href="/updateCart/{{this.product_slag}}?action=add" class="btn btn-info"> <i class="fa fa-plus"></i> </a>
+                                <a href="/updateCart/{{this.product_slag}}?action=minus" class="btn btn-warning"> <i class="fa fa-minus"></i> </a>
+                                <a href="/updateCart/{{this.product_slag}}?action=remove" class="btn btn-danger"> <i class="fa fa-trash"></i> </a>
+                            </th>
+                        </tr>
+                    {{/each}}
+                    <tr>
+                        <td colspan="6" align="right">
+                            Total Amount <i class="fa fa-inr"></i> {{totalAmount}}
+                        </td>
+                    </tr>
+                </table>
+                <div class="">
+                    <a href="/checkout" class="btn btn-info">Order Now </a>
+                </div>
+            {{else}}
+                <div class="alert alert-danger">
+                    Cart is Empty
+                </div>
+                <div class=" text-right">
+                    <a href="/" class="btn btn-info"> Start Shopping </a>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
